@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include Navbar %> 
+    
+    
+    <div class="container my-4">
+        <h2>ตะกร้าสินค้า</h2>
+        <table class="table">
+            <thead class="table-dark">
+              
+              <th scope="col">ชื่อสินค้า</th>
+              <th scope="col">จำนวน</th>
+              <th scope="col">ราคา</th>
+              <th scope="col">รวม</th>
+            </thead>
+            <tbody>
+                <% cart.items.forEach(function(product){ %>
+            <tr>
+                
+                <td><%= product.title %></td>
+                <td><%= product.qty %></td>
+                <td><%= product.price %></td>
+                <th scope="row"><%= product.price * product.qty %></th>
+            </tr>
+            <% }) %> 
+            </tbody>
+          </table>
+          <h2 align="right">ราคารวม : <%= cart.total %> </h2>
+    </div>
+</body>
+</html>
